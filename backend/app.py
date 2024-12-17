@@ -60,9 +60,10 @@ def broadcast_updates():
 if __name__ == '__main__':
     # Get the port from environment variables (default to 5000)
     port = int(os.getenv('PORT', 5000))
+    print(f"Running on port: {port}")
 
     # Spawn the background task
     eventlet.spawn(broadcast_updates)
 
-    # Run the application
-    socketio.run(app, debug=False, port=port)
+    # Run the application (bind to 0.0.0.0)
+    socketio.run(app, debug=False, port=port, host="0.0.0.0")
