@@ -1,0 +1,15 @@
+# Exclude the virtual environment
+backend/venv/
+
+# Node.js dependencies and build files
+frontend/node_modules/
+frontend/build/
+
+# OS and IDE files
+*.log
+.DS_Store
+.env
+
+# Exclude Python cache files
+*.pyc
+__pycache__/
