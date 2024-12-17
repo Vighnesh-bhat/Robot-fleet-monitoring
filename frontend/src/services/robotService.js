@@ -12,7 +12,7 @@ import axios from 'axios';
 //   }
 // };
 
-const BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://robot-fleet-manager-backend.onrender.com';
+const BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
 export const fetchRobots = async () => {
     try {
         const response = await axios.get(`${BASE_URL}/robots`);

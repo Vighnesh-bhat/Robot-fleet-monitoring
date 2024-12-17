@@ -15,7 +15,7 @@
 import io from 'socket.io-client';
 
 export const initializeSocket = () => {
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'https://robot-fleet-manager-backend.onrender.com';
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const socket= io(backendUrl);
     socket.on('connect', () => {
     console.log('Connected to WebSocket');
