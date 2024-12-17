@@ -2,7 +2,11 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 from flask_socketio import SocketIO, emit
 import eventlet
+import os
 
+from dotenv import load_dotenv
+
+load_dotenv()
 # Patch for eventlet
 eventlet.monkey_patch()
 
@@ -11,7 +15,7 @@ from utils.robot_data_manager import RobotDataManager
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:3002"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Initialize robot data manager
@@ -50,8 +54,6 @@ def broadcast_updates():
         socketio.emit('robot_update', updated_robots)
 
 if __name__ == '__main__':
-    # Start background update thread
+    port = int(os.getenv('PORT', 5000)) 
     eventlet.spawn(broadcast_updates)
-    
-    # Run the Flask-SocketIO app
-    socketio.run(app, debug=True, port=5000)
+    socketio.run(app, debug=True, port=port)
