@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Grid, Typography } from '@mui/material';
+import { Container, Grid, Typography,Box } from '@mui/material';
 import RobotMap from '../components/dashboard/RobotMap';
 import RobotCards from '../components/dashboard/RobotCards';
 import { fetchRobots } from '../services/robotService';
@@ -64,15 +64,19 @@ const Dashboard = () => {
       </Typography>
       
       {/* Map Section */}
+      
       <Grid 
         item 
         xs={12} 
         ref={mapRef}
         sx={{ 
-          width: '90%', 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          margin: 'auto',
+          width: '90vw', 
           height: '50vh', 
-          margin: 'auto', 
-          marginBottom: 10
+          marginBottom: 5
         }}
       >
         <RobotMap 
@@ -81,6 +85,7 @@ const Dashboard = () => {
           onRobotClick={handleMapRobotClick}
         />
       </Grid>
+      
 
       {/* Robot Cards Section */}
       <RobotCards 
