@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Grid, Typography,Box } from '@mui/material';
+import { Container, Grid, Typography} from '@mui/material';
 import RobotMap from '../components/dashboard/RobotMap';
 import RobotCards from '../components/dashboard/RobotCards';
 import { fetchRobots } from '../services/robotService';
